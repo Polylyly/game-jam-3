@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public GameObject Panel;
     public Image actorImage;
     public Text actorName;
     public Text messageText;
@@ -15,8 +16,16 @@ public class DialogueManager : MonoBehaviour
     int activeMessage = 0;
     public static bool isActive = false;
 
+    public static DialogueManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
+        Panel.SetActive(true);
         currentMessages = messages;
         currentActors = actors;
         activeMessage = 0;
@@ -44,6 +53,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.Log("conversation ended");
+            Panel.SetActive(false);
             //gameObject.SetActive(false);
         }
     }
@@ -51,7 +61,12 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Panel.SetActive(false);
+    }
+
+    public void ActivateDialoguePanel()
+    {
+        Panel.SetActive(true);
     }
 
     // Update is called once per frame

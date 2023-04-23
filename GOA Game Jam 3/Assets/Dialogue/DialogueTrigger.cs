@@ -7,8 +7,15 @@ public class DialogueTrigger : MonoBehaviour
     public Message[] messages;
     public Actor[] actors;
 
+    public static DialogueTrigger instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void StartDialogue()
     {
+        DialogueManager.instance.ActivateDialoguePanel();
         FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
     }
 }
