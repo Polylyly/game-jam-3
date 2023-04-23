@@ -5,9 +5,15 @@ using UnityEngine;
 public class BuriedScrap : MonoBehaviour
 {
     public GameObject scrapPrefab, VisibleScrap;
+    InventoryManager manager;
 
     GameObject currentScrap;
     ScrapData data;
+
+    private void Start()
+    {
+        manager = GameObject.FindWithTag("InventoryManager").GetComponent<InventoryManager>();
+    }
 
     public void GenerateScrap()
     {
@@ -18,7 +24,7 @@ public class BuriedScrap : MonoBehaviour
 
     public void AddToInventory()
     {
-        InventoryManager manager = GameObject.FindWithTag("InventoryManager").GetComponent<InventoryManager>();
+        manager = GameObject.FindWithTag("InventoryManager").GetComponent<InventoryManager>();
         if (manager.Add(currentScrap)) Destroy(this.currentScrap);
         else
         {
