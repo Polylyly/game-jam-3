@@ -184,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &1055829
 SpriteRenderer:
@@ -279,19 +279,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
-  - actorID: 1
+  - actorID: 0
     message: Huh? Oh I almost stepped on you little amigo
-  - actorID: 1
+  - actorID: 0
     message: Hey you don't happen to have any car parts on you?
-  - actorID: 1
+  - actorID: 0
     message: I mean if you don't, you could always look in the desert
-  - actorID: 1
+  - actorID: 0
     message: But you'd need some serious battery power to get a metal detector up
       and running
-  - actorID: 1
+  - actorID: 0
     message: Across my store, Bella has a stand. She could hook you up with some
       batteries
-  - actorID: 1
+  - actorID: 0
     message: Uh say hey to her from me- actually dont. dont. I'll head over. At some
       point
   actors:
@@ -1866,7 +1866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &603475615
 SpriteRenderer:
@@ -3957,7 +3957,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!212 &1895428270
 SpriteRenderer:
@@ -4052,15 +4052,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
-  - actorID: 2
+  - actorID: 0
     message: Oh Hello Senor Topo- You looking to buy something?
-  - actorID: 2
+  - actorID: 0
     message: I am not really sure what topos eat- no no definitely not cucumbers...
-  - actorID: 2
+  - actorID: 0
     message: Ai that heavy metal detector! What do you need that for?
-  - actorID: 2
+  - actorID: 0
     message: Did El Bigoton put you up to this? Getting scraps from out in the desert?
-  - actorID: 2
+  - actorID: 0
     message: Ah well take these batteries, for your trouble Topito
   actors:
   - name: Bella
