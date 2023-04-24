@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UISelector
   - InventoryManager
+  - MoneyManager
+  - BuriedScrap
   layers:
   - Default
   - TransparentFX

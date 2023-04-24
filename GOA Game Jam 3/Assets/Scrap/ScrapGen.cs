@@ -9,6 +9,13 @@ public class ScrapGen : MonoBehaviour
     public List<Vector3> tileWorldLocations;
     public int maxScrap;
     public GameObject scrapMound;
+    public static ScrapGen instance;
+
+    private void Start()
+    {
+        instance = this;
+        Generate();
+    }
 
     //Called by another script (nonexistent) whenever scrap needs to be generated
     public void Generate()
@@ -34,10 +41,18 @@ public class ScrapGen : MonoBehaviour
         }
     }
 
+    public void Destroy()
+    {
+        GameObject[] scrapMounds = GameObject.FindGameObjectsWithTag("BuriedScrap");
+        foreach (GameObject mound in scrapMounds)
+            Destroy(mound);
+    }
+
     // Update is called once per frame
     void Update()
     {
         //Testing purposes
         if (Input.GetKeyDown(KeyCode.G)) Generate();
+        if (Input.GetKeyDown(KeyCode.H)) Destroy();
     }
 }
