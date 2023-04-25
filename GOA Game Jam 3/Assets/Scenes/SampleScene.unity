@@ -598,14 +598,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 154287758}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 781212599}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: Drop
+        m_MethodName: onButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1212,7 +1212,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2040591683}
     m_Modifications:
     - target: {fileID: 3027487258578652852, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: player
@@ -1220,19 +1220,23 @@ PrefabInstance:
       objectReference: {fileID: 865546932}
     - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
+      propertyPath: m_LocalScale.x
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.045408085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0300002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10.040358
       objectReference: {fileID: 0}
     - target: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1331,6 +1335,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2141e60735ca79242a8d89abfffa5192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseToggle: 0
+  text: {fileID: 0}
+--- !u!4 &423696009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3027487258578652854, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
+  m_PrefabInstance: {fileID: 423696000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &505523993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2259,8 @@ MonoBehaviour:
   description: {fileID: 1637854025}
   selected: 0
   inventoryLimit: 6
+  buttonText: {fileID: 573558261}
+  button: {fileID: 154287757}
 --- !u!1 &850521054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,7 +2505,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952463349
 GameObject:
@@ -2972,6 +2985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 781212599}
+  isOpen: 0
 --- !u!1 &1224587740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,6 +4617,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998603099}
   m_CullTransparentMesh: 1
+--- !u!1 &2040591682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040591683}
+  m_Layer: 0
+  m_Name: HaggleSlider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040591683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040591682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.39, z: -10.040358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 423696009}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068432373
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,7 +6745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8513698891007889600, guid: 9735db8ba62e3854085e0871963eb228, type: 3}
       propertyPath: minIntensity
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8513698891007889600, guid: 9735db8ba62e3854085e0871963eb228, type: 3}
       propertyPath: minPingDelay
@@ -6707,7 +6753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8513698891007889600, guid: 9735db8ba62e3854085e0871963eb228, type: 3}
       propertyPath: maxBeepRadius
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8513698891007889600, guid: 9735db8ba62e3854085e0871963eb228, type: 3}
       propertyPath: detectMask.m_Bits

@@ -26,4 +26,17 @@ public class HagglingVisibility : MonoBehaviour
         	_sp.enabled = false;
         }
     }
+
+    public void Show()
+    {
+        _visible = true;
+        _sp.enabled = true;
+    }
+
+    public void Hide()
+    {
+        _visible = false;
+        _sp.enabled = false;
+    }
+
 }

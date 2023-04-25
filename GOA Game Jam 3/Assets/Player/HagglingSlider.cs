@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HagglingSlider : MonoBehaviour
 {
 	private float _angularF = 5f;
-	private bool _pauseToggle = false;
+	public bool _pauseToggle = false;
 	private float _time = 0f;
 	void Start()
 	{
@@ -22,8 +23,15 @@ public class HagglingSlider : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Space)){
 			_pauseToggle = true;
 		}
-		if(Input.GetKeyUp(KeyCode.Space)){
-			_pauseToggle = false;
-		}
+		//if(Input.GetKeyUp(KeyCode.Space)){
+		//	_pauseToggle = false;
+		//}
+		text.text = "$" + getValue();
+
 	}
+
+	public int getValue()
+    {
+		return (int)(100f * Mathf.Lerp(-0.472f, 0.473f, transform.position.x));
+    }
 }
