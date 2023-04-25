@@ -101,4 +101,6 @@ public class MetalDetectorBehavior : MonoBehaviour
     {
         slider.value = Mathf.Clamp(slider.value + amount, 0f, 100f);
     }
+
+   
 }

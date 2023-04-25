@@ -38,7 +38,7 @@ public class ScrapData : MonoBehaviour
         type = (ScrapType)Random.Range(0, 3);
         condition = (ScrapCondition)Random.Range(0, 3);
         color = (ScrapColor)Random.Range(0, 3);
-        weight = (int)Random.Range(1, 20);
+        weight = (int)Random.Range(1, 10);
         sprite = Resources.Load<Sprite>(type.ToString()) as Sprite;
         
     }
@@ -66,5 +66,112 @@ public class ScrapData : MonoBehaviour
         condition = data.condition;
         color = data.color;
         sprite = data.sprite;
+    }
+
+    public int getValue()
+    {
+        int value = 0;
+        switch (type) {
+            case ScrapType.Gear:
+                //code for usable value
+                if(condition == ScrapCondition.Sandy)
+                {
+                    value = 25;
+                }else if(condition == ScrapCondition.Cracked)
+                {
+                    value = 10;  
+                }else if (condition == ScrapCondition.Rusty)
+                {
+                    value = 15;
+                    if (condition == ScrapCondition.Rusty && color == ScrapColor.Teal)
+                    {
+                        value = Mathf.Max(value, weight * 10);
+                    }
+                }
+                //code for melted down value
+                if(color == ScrapColor.Grey)
+                {
+                    value = Mathf.Max(value, weight * 5);
+                }
+                break;
+            case ScrapType.Battery:
+                //code for usable value
+                if (condition == ScrapCondition.Sandy)
+                {
+                    if (color == ScrapColor.Teal)
+                    {
+                        value = 35;
+                    }
+                    else if (color == ScrapColor.Brown)
+                    {
+                        value = 20;
+                    }
+                    value = 25;
+                }
+                else if (condition == ScrapCondition.Cracked)
+                {
+                    value = 5;
+                }
+                else if (condition == ScrapCondition.Rusty)
+                {
+                    if(color == ScrapColor.Teal)
+                    {
+                        value = 35;
+                    }else if(color == ScrapColor.Brown)
+                    {
+                        value = 20;
+                    }
+                    if (condition == ScrapCondition.Rusty && color == ScrapColor.Teal)
+                    {
+                        value = Mathf.Max(value, weight * 10);
+                    }
+                }
+                //code for melted down value
+                if (color == ScrapColor.Grey)
+                {
+                    value = Mathf.Max(value, weight * 5);
+                }
+                break;
+            case ScrapType.Circuit:
+                //code for usable value
+                if (condition == ScrapCondition.Sandy)
+                {
+                    value = 5;
+                }
+                else if (condition == ScrapCondition.Cracked)
+                {
+                    if(color == ScrapColor.Teal)
+                    {
+                        value = 45;
+                    }else if(color == ScrapColor.Brown)
+                    {
+                        value = 15;
+                    }else if(color == ScrapColor.Grey)
+                    {
+                        value = 25;
+                    }   
+                }
+                else if (condition == ScrapCondition.Rusty)
+                {
+                    if (color == ScrapColor.Teal)
+                    {
+                        value = 45;
+                    }
+                    else if (color == ScrapColor.Brown)
+                    {
+                        value = 15;
+                    }
+                    else if (color == ScrapColor.Grey)
+                    {
+                        value = 25;
+                    }
+                    if (condition == ScrapCondition.Rusty && color == ScrapColor.Teal)
+                    {
+                        value = Mathf.Max(value, weight * 10);
+                    } 
+                }
+                break;
+        }
+        return value;
     }
 }
