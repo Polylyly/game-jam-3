@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InventoryOpener : MonoBehaviour
 {
     public InventoryManager manager;
-    public bool isOpen;
+    public bool isOpen = true;
+    public Action onInventoryClosed;
+
+    
     private void Update()
     {
-        isOpen = transform.GetChild(0).gameObject.activeInHierarchy;
         if (Input.GetButtonDown("ToggleInventory"))
         {
             ToggleInventory();
@@ -19,5 +22,7 @@ public class InventoryOpener : MonoBehaviour
     {
         manager.SelectItem(-1);
         transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeInHierarchy);
+        isOpen = transform.GetChild(0).gameObject.activeInHierarchy;
+        if (!isOpen) onInventoryClosed();
     }
 }

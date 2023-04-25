@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public int inventoryLimit = 6;
     public TextMeshProUGUI buttonText;
     public Button button;
+    public HaggleManager haggleManager;
 
     void Start()
     {
@@ -76,15 +77,15 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Sell();
+            Sell(haggleManager.gameObject.GetComponent<ScrapData>());
+            haggleManager.OnScrapSold();
         }
     }
 
-    public ScrapData Sell()
+    public void Sell(ScrapData scr)
     {
-        if (selected == -1) return null;
+        if (selected == -1) return;
         int temp = selected;
-        ScrapData scr = new ScrapData();
         scr.Copy(inventoryItems[selected].GetComponent<ScrapData>());
         Destroy(inventoryItems[selected]);
         selected = -1;
@@ -96,7 +97,7 @@ public class InventoryManager : MonoBehaviour
         }
         inventoryItems.RemoveAt(inventoryItems.Count - 1);
         SelectItem(-1);
-        return scr;
+        return;
     }
     public void Drop()
     {

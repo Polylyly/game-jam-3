@@ -17,7 +17,7 @@ public class HagglingSlider : MonoBehaviour
 	void Update()
 	{
 		if(_pauseToggle == false){
-			_time += Time.deltaTime;
+			_time += 0.3f * Time.deltaTime;
 			transform.localPosition = new Vector2( (float) 0.473 * Mathf.Cos(_angularF * _time), (float) -0.27);
 		}
 		if(Input.GetKeyDown(KeyCode.Space)){
@@ -26,12 +26,13 @@ public class HagglingSlider : MonoBehaviour
 		//if(Input.GetKeyUp(KeyCode.Space)){
 		//	_pauseToggle = false;
 		//}
-		text.text = "$" + getValue();
-
 	}
 
 	public int getValue()
     {
-		return (int)(100f * Mathf.Lerp(-0.472f, 0.473f, transform.position.x));
-    }
+
+		float iLerp = Mathf.InverseLerp(-0.473f, 0.473f, transform.localPosition.x);
+		return (int) ( 100f * iLerp);
+
+	}
 }
