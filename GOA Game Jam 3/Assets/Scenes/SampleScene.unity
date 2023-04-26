@@ -2411,7 +2411,7 @@ MonoBehaviour:
   inventoryLimit: 6
   buttonText: {fileID: 573558261}
   button: {fileID: 154287757}
-  haggleManager: {fileID: 0}
+  haggleManager: {fileID: 1406833617}
 --- !u!1 &850521054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,7 +3571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdd4993e30dc47468fb7263c25d958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
 --- !u!114 &1358224839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4334,7 +4333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdd4993e30dc47468fb7263c25d958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
 --- !u!114 &1722769487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4347,7 +4345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdd4993e30dc47468fb7263c25d958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
 --- !u!1 &1731305424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,7 +5503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdd4993e30dc47468fb7263c25d958f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
 --- !u!114 &2019394484
 MonoBehaviour:
   m_ObjectHideFlags: 0
