@@ -50,15 +50,16 @@ public class HaggleManager : MonoBehaviour
         }
     }
 
-    void StartHaggleSequence()
+    public void StartHaggleSequence()
     {
         //TODO put code to play dialogue for bigoton asking what you want to buy
+        BigotonScript.instance.ActivateDialoguePanel();
 
         //this code opens the inventory and allows the player to sell items
         iManager.enterSellMode();
         if (!iOpener.isOpen) iOpener.ToggleInventory();
     }
-
+    
     public void OnScrapSold()
     {
         if (useDebugCode) Debug.Log("Scrap value: " + data.getValue());
@@ -66,9 +67,26 @@ public class HaggleManager : MonoBehaviour
         value = Math.Clamp((int) (data.getValue() * UnityEngine.Random.Range(0.3f, 0.9f)), 1, 100);
         if (useDebugCode) Debug.Log("Bigoton's Value: " + value);
         //TODO add dialogue where bigoton states the value he is willing to pay
+        BigotonScript.instance.StateValue(value);
+
+        //done, not sure if it works,,
+
+
         //TODO should add dialogue options to either accept the price or haggle with him
+        BigotonScript.instance.PlayOptionMsg();
+
+        //done
+
         //TODO you can link the 'accept price' button to the OnAcceptedPrice() function
-        //and the 'haggle' button to the OnHaggleMinigameStart() function
+        BigotonScript.instance.ShowAcceptButton();
+
+        //done
+
+        //shows Haggle Button
+        BigotonScript.instance.ShowHaggleButton();
+
+        //done
+
         iManager.enterDropMode();
         iOpener.ToggleInventory();
     }
@@ -78,6 +96,10 @@ public class HaggleManager : MonoBehaviour
         Money.instance.AddMoney(value);
         value = -1;
         //TODO include dialogue where bigoton says goodbye
+        BigotonScript.instance.PlayGoodbyeMsg();
+
+        //done
+
     }
 
     public void OnHaggleMinigameStart()
@@ -97,13 +119,21 @@ public class HaggleManager : MonoBehaviour
         {
             if (useDebugCode) Debug.Log("Price accepted, haggle successful");
             //TODO include dialogue for bigoton saying goodbye and telling the player they won
+            BigotonScript.instance.PlayGoodbyeMsg();
+
+            //done
+
             Money.instance.AddMoney(value);
             value = -1;
         }
         else
         {
-           
+
             //TODO include dialogue for bigoton saying goodbye and telling the player they lost, and that he bought the item for half price
+            BigotonScript.instance.PlayLosingGoodbyeMsg();
+
+            //done
+
             value = data.getValue()/2;
             if (useDebugCode) Debug.Log("Price too high, bigoton paid: " + value);
             Money.instance.AddMoney(value);
@@ -115,6 +145,9 @@ public class HaggleManager : MonoBehaviour
     {
         iManager.enterDropMode();
         //TODO include dialogue for when the player cancels selling by closing their inventory
-        //something like "ah, don't wanna sell?"
+        BigotonScript.instance.PlayCancelMsg();
+
+        //done
+
     }
 }

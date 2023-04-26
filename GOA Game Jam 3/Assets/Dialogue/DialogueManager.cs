@@ -52,8 +52,13 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("conversation ended");
+            Debug.Log("first conversation ended");
             Panel.SetActive(false);
+            if (actorName.text == "El Bigoton") 
+            {
+                Debug.Log("convo ended w el B");
+                //
+            }
             //gameObject.SetActive(false);
         }
     }
