@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
 
     public static DialogueManager instance;
 
+    private GameObject FirstBigoton;
+
     private void Awake()
     {
         instance = this;
@@ -57,7 +59,9 @@ public class DialogueManager : MonoBehaviour
             if (actorName.text == "El Bigoton") 
             {
                 Debug.Log("convo ended w el B");
-                //
+                BigotonScript.instance.ActivateBigoton();
+                FirstBigoton = GameObject.Find("BigotonNPC");
+                FirstBigoton.SetActive(false);
             }
             //gameObject.SetActive(false);
         }

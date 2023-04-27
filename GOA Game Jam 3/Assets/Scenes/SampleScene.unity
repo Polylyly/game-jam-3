@@ -3658,7 +3658,7 @@ MonoBehaviour:
   actorName: {fileID: 1123623275}
   messageText: {fileID: 1224587742}
   haggleButton: {fileID: 1912313926}
-  acceptButton: {fileID: 0}
+  acceptButton: {fileID: 1471033559}
   FirstMsg: Hello Topo, back from the desert? Maybe you have some items to sell.
   GoodbyeMsg: Goodbye Topo- Make good use of that money.
   LosingGoodbyeMsg: Ah tough luck amigo but I don't go easy on anyone- Here's what

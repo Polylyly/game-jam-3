@@ -30,8 +30,12 @@ public class BigotonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         FunctionalBigoton.SetActive(false);
+
         Panel.SetActive(false);
+
+
         haggleButton.SetActive(false);
         acceptButton.SetActive(false);
 
@@ -46,7 +50,7 @@ public class BigotonScript : MonoBehaviour
     }
     public void ActivateBigoton()
     {
-        FunctionalBigoton = GameObject.Find("FunctionalBigoton");
+        
         FunctionalBigoton.SetActive(true);
     }
 
