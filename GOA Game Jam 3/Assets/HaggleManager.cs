@@ -13,7 +13,13 @@ public class HaggleManager : MonoBehaviour
     public HagglingVisibility hgv2;
     public HagglingSlider slider;
     public bool useDebugCode = false;
-    
+
+    public static HaggleManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +58,10 @@ public class HaggleManager : MonoBehaviour
 
     public void StartHaggleSequence()
     {
+        Debug.Log("Started haggle sequence");
         //TODO put code to play dialogue for bigoton asking what you want to buy
         BigotonScript.instance.ActivateDialoguePanel();
+        BigotonScript.instance.PlayFirstMsg();
 
         //this code opens the inventory and allows the player to sell items
         iManager.enterSellMode();

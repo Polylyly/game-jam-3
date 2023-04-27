@@ -19630,6 +19630,7 @@ GameObject:
   - component: {fileID: 1358224835}
   - component: {fileID: 1358224834}
   - component: {fileID: 1358224838}
+  - component: {fileID: 1358224839}
   m_Layer: 0
   m_Name: FunctionalBigoton
   m_TagString: Untagged
@@ -19772,6 +19773,19 @@ MonoBehaviour:
     I owe you.
   cancelMsg: Ah bueno- Maybe next time Topo.
   optionMsg: Care to haggle or accept the price?
+--- !u!114 &1358224839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358224831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f2a28e7435e494ebab7f1222205a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 0}
 --- !u!1 &1406833614
 GameObject:
   m_ObjectHideFlags: 0
@@ -21700,13 +21714,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - actorID: 0
-    message: Oh Hello Senor Topo- You looking to buy something?
-  - actorID: 0
-    message: I am not really sure what topos eat- no no definitely not cucumbers...
+    message: Oh Hello Senor Topo
   - actorID: 0
     message: Ai that heavy metal detector! What do you need that for?
   - actorID: 0
-    message: Did El Bigoton put you up to this? Getting scraps from out in the desert?
+    message: For scraps? El Bigoton set you up to this?
   - actorID: 0
     message: Ah well take these batteries, for your trouble Topito
   actors:

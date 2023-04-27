@@ -47,6 +47,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void NextMessage()
     {
+        Panel = Panel.GetComponent<GameObject>();
+
         activeMessage++;
         if(activeMessage < currentMessages.Length)
         {
@@ -54,6 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+
             Debug.Log("first conversation ended");
             Panel.SetActive(false);
             if (actorName.text == "El Bigoton") 
@@ -63,6 +66,11 @@ public class DialogueManager : MonoBehaviour
                 FirstBigoton = GameObject.Find("BigotonNPC");
                 FirstBigoton.SetActive(false);
             }
+            if (actorName.text == "Bella")
+            {
+                Debug.Log("convo ended w Bella"); 
+                GameObject.FindWithTag("Player").transform.GetChild(0).gameObject.GetComponent<MetalDetectorBehavior>().Charge(100f);
+            }
             //gameObject.SetActive(false);
         }
     }
@@ -70,18 +78,20 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Panel = Panel.GetComponent<GameObject>();
         Panel.SetActive(false);
     }
 
     public void ActivateDialoguePanel()
     {
+        Panel = Panel.GetComponent<GameObject>();
         Panel.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isActive == true)
+        if (Input.GetKeyDown(KeyCode.Return) && isActive == true)
         {
             NextMessage();
         }
