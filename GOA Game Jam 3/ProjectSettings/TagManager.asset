@@ -8,6 +8,7 @@ TagManager:
   - InventoryManager
   - MoneyManager
   - BuriedScrap
+  - Button
   layers:
   - Default
   - TransparentFX

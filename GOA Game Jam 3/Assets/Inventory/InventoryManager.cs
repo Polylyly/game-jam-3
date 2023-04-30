@@ -14,12 +14,18 @@ public class InventoryManager : MonoBehaviour
     public int inventoryLimit = 6;
     public TextMeshProUGUI buttonText;
     public Button button;
-    public HaggleManager haggleManager;
-
+    private HaggleManager haggleManager;
+    public static InventoryManager instance;
+    GameObject bigotonn;
+    void Awake(){
+        instance = this;
+    }
     void Start()
     {
         inventoryItems = new List<GameObject>();
         InitializeInventory();
+        bigotonn = GameObject.Find("BigotonNPC");
+        haggleManager = bigotonn.GetComponent<HaggleManager>();
     }
     
     void Update()
@@ -77,7 +83,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            Sell(haggleManager.gameObject.GetComponent<ScrapData>());
+            Sell(bigotonn.GetComponent<ScrapData>());
             haggleManager.OnScrapSold();
         }
     }

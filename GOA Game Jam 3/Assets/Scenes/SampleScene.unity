@@ -135,8 +135,10 @@ GameObject:
   - component: {fileID: 1055829}
   - component: {fileID: 1055828}
   - component: {fileID: 1055827}
-  - component: {fileID: 1055832}
-  - component: {fileID: 1055831}
+  - component: {fileID: 1055833}
+  - component: {fileID: 1055834}
+  - component: {fileID: 1055836}
+  - component: {fileID: 1055835}
   m_Layer: 0
   m_Name: BigotonNPC
   m_TagString: Untagged
@@ -253,7 +255,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1055831
+--- !u!114 &1055833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,11 +264,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9610e447ec734924ea8d3172bc6c3d37, type: 3}
+  m_Script: {fileID: 11500000, guid: c55713ff3aa4118438aca343314af01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 1055832}
---- !u!114 &1055832
+  dialogeBox: {fileID: 1193960279}
+  myPlayer: {fileID: 865546917}
+  name: Bigoton
+  dialogue: []
+  avatarr: {fileID: 21300000, guid: 1a5527b72ba51ee4191098fd510cf9e0, type: 3}
+--- !u!114 &1055834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,28 +281,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5500edb8044fa5440b4fe600fcff7c6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 450a9a14d75cf784bb0513bc6f6c5489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages:
-  - actorID: 0
-    message: Huh? Oh I almost stepped on you little amigo
-  - actorID: 0
-    message: Hey you don't happen to have any car parts on you?
-  - actorID: 0
-    message: I mean if you don't, you could always look in the desert
-  - actorID: 0
-    message: But you'd need some serious battery power to get a metal detector up
-      and running
-  - actorID: 0
-    message: Across my store, Bella has a stand. She could hook you up with some
-      batteries
-  - actorID: 0
-    message: Uh say hey to her from me- actually dont. dont. I'll head over. At some
-      point
-  actors:
-  - name: El Bigoton
-    sprite: {fileID: 21300000, guid: 1a5527b72ba51ee4191098fd510cf9e0, type: 3}
+  FunctionalBigoton: {fileID: 0}
+  firstMsg: Hello There, I see you would like to trade some stuff?
+  goodbyeMsg: Nice, nice! Come visit more often!
+  losingGoodbyeMsg: You are not getting a better deal, take it or LEAVE!
+  cancelMsg: As you wish, I am sure you will change your mind.
+  optionMsg: What do you say; reasonable eh?
+--- !u!114 &1055835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5592b415cc54000429a11e6c768a76c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  condition: 0
+  color: 0
+  weight: 0
+  sprite: {fileID: 0}
+--- !u!114 &1055836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6733ba97a6c84b469e37ef005a5efd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iManager: {fileID: 781212599}
+  iOpener: {fileID: 1129599442}
+  value: -1
+  hgv1: {fileID: 423696004}
+  hgv2: {fileID: 423696005}
+  slider: {fileID: 423696006}
+  useDebugCode: 1
 --- !u!1 &35756394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,6 +1988,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slider
       objectReference: {fileID: 0}
+    - target: {fileID: 3027487258578652873, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027487259961542158, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3027487258578652852, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7b6f6da49c3d82f4b9c24e67ed7c9602, type: 3}
@@ -2543,7 +2580,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541001819}
-  - component: {fileID: 541001820}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -2572,23 +2608,6 @@ RectTransform:
   m_AnchoredPosition: {x: 26, y: -69}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &541001820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541001818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a882e58531cfb1841a9e306e0d367278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 541001818}
-  actorImage: {fileID: 646721373}
-  actorName: {fileID: 1123623275}
-  messageText: {fileID: 1224587742}
-  backgroundBox: {fileID: 1646051832}
 --- !u!1 &573558259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,8 +2755,7 @@ GameObject:
   - component: {fileID: 603475615}
   - component: {fileID: 603475614}
   - component: {fileID: 603475613}
-  - component: {fileID: 603475618}
-  - component: {fileID: 603475617}
+  - component: {fileID: 603475619}
   m_Layer: 0
   m_Name: TitoNPC
   m_TagString: Untagged
@@ -2854,7 +2872,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &603475617
+--- !u!114 &603475619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2863,37 +2881,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 603475612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9610e447ec734924ea8d3172bc6c3d37, type: 3}
+  m_Script: {fileID: 11500000, guid: c55713ff3aa4118438aca343314af01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 603475618}
---- !u!114 &603475618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603475612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5500edb8044fa5440b4fe600fcff7c6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages:
-  - actorID: 0
-    message: Hey there! Are you new in town? I haven't seen you.
-  - actorID: 0
-    message: And I would know- I go on manyyy adventures into the desert
-  - actorID: 0
-    message: 'Im practically an expert- you could ask me about anything '
-  - actorID: 0
-    message: 'Well maybe not everything. El Bigoton knows a lot more about moneys
-      stuffs than me '
-  - actorID: 0
-    message: Hes outside his store waiting for a buddy of his- go say hi lil Topo
-  actors:
-  - name: Tito
-    sprite: {fileID: 21300000, guid: 5ac8422435980034f89ce4008cfbd506, type: 3}
+  dialogeBox: {fileID: 541001818}
+  myPlayer: {fileID: 865546917}
+  name: Tito
+  dialogue:
+  - "Copper is pretty valuable \u2018round these parts; about 10 coins per gram.
+    It\u2019s often hard to spot among all the other metals, but it has a distinctive
+    teal color when it's rusty."
+  - "If a battery gets cracked, it won\u2019t be worth more than 5 coins, unless
+    it\u2019s made of some great metal that could be melted down. // Circuit boards
+    are different though; a cracked circuit could still be worth the full price 15
+    or more."
+  - "Cracked gears won\u2019t work right in machinery. They\u2019re only worth 10
+    coins, unless you can melt them down for something."
+  - "Different circuit companies use different backboards. The teal plastic ones
+    are great, worth 45 coins! I\u2019d give the nice gray ones 25 coins, but brown
+    circuits are barely worth 15"
+  - "It\u2019s easy to clean up gears and batteries, but sand just doesn\u2019t come
+    out of circuits. If a circuit\u2019s sandy Bigoton\u2019d hardly give you 5 coins
+    for it, unless it could be melted down."
+  - "Gray steel gears and batteries can be melted down for about 5 coins a gram,
+    even if the condition of the item is poor. Circuit boards are almost all plastic,
+    though, so gray circuits aren\u2019t worth that much."
+  - "Older batteries used to be brown, but the newer ones are teal. An old battery
+    isn\u2019t worth more than 20 coins, but the new ones are worth 35."
+  - Sandy gears just need a quick scrub to be in working order, but rust will clog
+    up gearboxes! A sandy gear will fetch you 25 coins, but rusty ones are only worth
+    15.
+  avatarr: {fileID: 21300000, guid: 5ac8422435980034f89ce4008cfbd506, type: 3}
 --- !u!1 &614095416
 GameObject:
   m_ObjectHideFlags: 0
@@ -18074,7 +18092,6 @@ MonoBehaviour:
   inventoryLimit: 6
   buttonText: {fileID: 573558261}
   button: {fileID: 154287757}
-  haggleManager: {fileID: 1406833617}
 --- !u!1 &833950718
 GameObject:
   m_ObjectHideFlags: 0
@@ -18543,86 +18560,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &923343208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 923343209}
-  - component: {fileID: 923343211}
-  - component: {fileID: 923343210}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &923343209
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923343208}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1912313927}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &923343210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923343208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 8d8e84a3ac4630f48b62e415f06f2686, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Haggle?
---- !u!222 &923343211
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923343208}
-  m_CullTransparentMesh: 1
 --- !u!1 &952463349
 GameObject:
   m_ObjectHideFlags: 0
@@ -18695,7 +18632,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: af6bdbdf74f58974b920537a63986d09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19118,7 +19055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1193960280
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19132,8 +19069,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 614095417}
-  - {fileID: 1912313927}
-  - {fileID: 1471033560}
   m_Father: {fileID: 505523997}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19149,16 +19084,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193960279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a882e58531cfb1841a9e306e0d367278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 1193960279}
-  actorImage: {fileID: 683153238}
-  actorName: {fileID: 1354177473}
-  messageText: {fileID: 2015591956}
-  backgroundBox: {fileID: 614095417}
 --- !u!1 &1224587740
 GameObject:
   m_ObjectHideFlags: 0
@@ -19629,15 +19559,13 @@ GameObject:
   - component: {fileID: 1358224836}
   - component: {fileID: 1358224835}
   - component: {fileID: 1358224834}
-  - component: {fileID: 1358224838}
-  - component: {fileID: 1358224839}
   m_Layer: 0
   m_Name: FunctionalBigoton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1358224834
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19743,252 +19671,10 @@ Transform:
   m_LocalPosition: {x: 17.33, y: -7.64, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1406833615}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1358224838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358224831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450a9a14d75cf784bb0513bc6f6c5489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FunctionalBigoton: {fileID: 1358224831}
-  Panel: {fileID: 1646051831}
-  actorImage: {fileID: 646721373}
-  actorName: {fileID: 1123623275}
-  messageText: {fileID: 1224587742}
-  haggleButton: {fileID: 1912313926}
-  acceptButton: {fileID: 1471033559}
-  FirstMsg: Hello Topo, back from the desert? Maybe you have some items to sell.
-  GoodbyeMsg: Goodbye Topo- Make good use of that money.
-  LosingGoodbyeMsg: Ah tough luck amigo but I don't go easy on anyone- Here's what
-    I owe you.
-  cancelMsg: Ah bueno- Maybe next time Topo.
-  optionMsg: Care to haggle or accept the price?
---- !u!114 &1358224839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358224831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f2a28e7435e494ebab7f1222205a7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
---- !u!1 &1406833614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1406833615}
-  - component: {fileID: 1406833617}
-  - component: {fileID: 1406833616}
-  m_Layer: 0
-  m_Name: HaggleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1406833615
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406833614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1358224837}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1406833616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406833614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5592b415cc54000429a11e6c768a76c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  condition: 0
-  color: 0
-  weight: 0
-  sprite: {fileID: 0}
---- !u!114 &1406833617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406833614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6733ba97a6c84b469e37ef005a5efd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iManager: {fileID: 781212599}
-  iOpener: {fileID: 1129599442}
-  value: -1
-  hgv1: {fileID: 423696004}
-  hgv2: {fileID: 423696005}
-  slider: {fileID: 423696006}
-  useDebugCode: 1
---- !u!1 &1471033559
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1471033560}
-  - component: {fileID: 1471033563}
-  - component: {fileID: 1471033562}
-  - component: {fileID: 1471033561}
-  m_Layer: 5
-  m_Name: AcceptButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1471033560
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471033559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2051163826}
-  m_Father: {fileID: 1193960280}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 248.1, y: -76.4}
-  m_SizeDelta: {x: 83.9067, y: 56.9318}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1471033561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471033559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5521538, b: 0.5521538, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1471033562}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1406833617}
-        m_TargetAssemblyTypeName: HaggleManager, Assembly-CSharp
-        m_MethodName: OnAcceptPrice
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1471033562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471033559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a95e8ec1eb3cac04da2e0ef2465bb97e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1471033563
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471033559}
-  m_CullTransparentMesh: 1
 --- !u!1 &1545893796
 GameObject:
   m_ObjectHideFlags: 0
@@ -20768,7 +20454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1722769482
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21569,8 +21255,7 @@ GameObject:
   - component: {fileID: 1895428270}
   - component: {fileID: 1895428269}
   - component: {fileID: 1895428268}
-  - component: {fileID: 1895428273}
-  - component: {fileID: 1895428272}
+  - component: {fileID: 1895428274}
   m_Layer: 0
   m_Name: BellaNPC
   m_TagString: Untagged
@@ -21660,7 +21345,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c8e29e5a2670c9540b98f7ea55547b39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21687,7 +21372,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1895428272
+--- !u!114 &1895428274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21696,168 +21381,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895428267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9610e447ec734924ea8d3172bc6c3d37, type: 3}
+  m_Script: {fileID: 11500000, guid: c55713ff3aa4118438aca343314af01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 1895428273}
---- !u!114 &1895428273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895428267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5500edb8044fa5440b4fe600fcff7c6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messages:
-  - actorID: 0
-    message: Oh Hello Senor Topo
-  - actorID: 0
-    message: Ai that heavy metal detector! What do you need that for?
-  - actorID: 0
-    message: For scraps? El Bigoton set you up to this?
-  - actorID: 0
-    message: Ah well take these batteries, for your trouble Topito
-  actors:
-  - name: Bella
-    sprite: {fileID: 21300000, guid: cb59fd867da866b4d9ac26d53fb47bb6, type: 3}
---- !u!1 &1912313926
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1912313927}
-  - component: {fileID: 1912313930}
-  - component: {fileID: 1912313929}
-  - component: {fileID: 1912313928}
-  m_Layer: 5
-  m_Name: HaggleButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1912313927
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912313926}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 923343209}
-  m_Father: {fileID: 1193960280}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 247.8, y: -139.4}
-  m_SizeDelta: {x: 83.9067, y: 56.9318}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1912313928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912313926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5521538, b: 0.5521538, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1912313929}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1406833617}
-        m_TargetAssemblyTypeName: HaggleManager, Assembly-CSharp
-        m_MethodName: OnHaggleMinigameStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1912313929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912313926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a95e8ec1eb3cac04da2e0ef2465bb97e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1912313930
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912313926}
-  m_CullTransparentMesh: 1
+  dialogeBox: {fileID: 541001818}
+  myPlayer: {fileID: 865546917}
+  name: Bella
+  dialogue:
+  - Hello there!
+  - I see your battery is need of a recharge?
+  - There you go, please come talk to me again for free refills!
+  avatarr: {fileID: 21300000, guid: cb59fd867da866b4d9ac26d53fb47bb6, type: 3}
 --- !u!1001 &1941417063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22488,7 +22022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &2019394479
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22598,86 +22132,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2051163825
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2051163826}
-  - component: {fileID: 2051163828}
-  - component: {fileID: 2051163827}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2051163826
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051163825}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1471033560}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2051163827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051163825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 8d8e84a3ac4630f48b62e415f06f2686, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Accept Money?
---- !u!222 &2051163828
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051163825}
-  m_CullTransparentMesh: 1
 --- !u!1 &2068432373
 GameObject:
   m_ObjectHideFlags: 0

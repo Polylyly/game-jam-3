@@ -10,14 +10,17 @@ public class HaggleManager : MonoBehaviour
     private ScrapData data;
     public int value = -1;
     public HagglingVisibility hgv1;
-    public HagglingVisibility hgv2;
+    public HagglingVisibility hgv2; 
     public HagglingSlider slider;
     public bool useDebugCode = false;
-
+    bool sold = false;
     public static HaggleManager instance;
+    BigotonScript bigInstance;
+    bool enteredSoldMode = false;
     private void Awake()
     {
         instance = this;
+        bigInstance = GetComponent<BigotonScript>();
     }
 
     // Start is called before the first frame update
@@ -30,38 +33,14 @@ public class HaggleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (useDebugCode)
-        {
-            if (Input.GetKeyDown("h"))
-            {
-                Debug.Log("Start haggle sequence");
-                StartHaggleSequence();
-            }
-            if (Input.GetKeyDown("y"))
-            {
-                Debug.Log("Start haggle minigame");
-                OnHaggleMinigameStart();
-            }
-            if (Input.GetKeyDown("n"))
-            {
-                Debug.Log("Price accepted");
-                OnAcceptPrice();
-            }
-        }
-
-        if (slider._pauseToggle == true)
-        {
-            OnHaggleMinigameEnd();
-            slider._pauseToggle = false;
-        }
+        
     }
 
     public void StartHaggleSequence()
     {
         Debug.Log("Started haggle sequence");
-        //TODO put code to play dialogue for bigoton asking what you want to buy
-        BigotonScript.instance.ActivateDialoguePanel();
-        BigotonScript.instance.PlayFirstMsg();
+        //bigInstance.ActivateDialoguePanel();
+        bigInstance.PlayFirstMsg();
 
         //this code opens the inventory and allows the player to sell items
         iManager.enterSellMode();
@@ -75,49 +54,43 @@ public class HaggleManager : MonoBehaviour
         value = Math.Clamp((int) (data.getValue() * UnityEngine.Random.Range(0.3f, 0.9f)), 1, 100);
         if (useDebugCode) Debug.Log("Bigoton's Value: " + value);
         //TODO add dialogue where bigoton states the value he is willing to pay
-        BigotonScript.instance.StateValue(value);
-
+        bigInstance.StateValue(value);
+        enteredSoldMode = true;
         //done, not sure if it works,,
 
 
         //TODO should add dialogue options to either accept the price or haggle with him
-        BigotonScript.instance.PlayOptionMsg();
-
+        //bigInstance.PlayOptionMsg();
         //done
 
-        //TODO you can link the 'accept price' button to the OnAcceptedPrice() function
-        BigotonScript.instance.ShowAcceptButton();
-
-        //done
-
-        //shows Haggle Button
-        BigotonScript.instance.ShowHaggleButton();
-
-        //done
-
-        iManager.enterDropMode();
-        iOpener.ToggleInventory();
     }
 
     public void OnAcceptPrice()
     {
         Money.instance.AddMoney(value);
         value = -1;
+        sold =  true;
         //TODO include dialogue where bigoton says goodbye
-        BigotonScript.instance.PlayGoodbyeMsg();
+        bigInstance.PlayGoodbyeMsg();
 
         //done
-
+        iManager.enterDropMode();
+        iOpener.ToggleInventory();
     }
 
     public void OnHaggleMinigameStart()
     {
         hgv1.Show();
         hgv2.Show();
+        GameObject.Find("BigotonDialogue/DialogueBox").GetComponent<CanvasRenderer>().SetAlpha(0f);
+        GameObject.Find("BigotonDialogue/DialogueBox/Avatar").GetComponent<CanvasRenderer>().SetAlpha(0f);
+        GameObject.Find("BigotonDialogue/DialogueBox/ActorName").GetComponent<CanvasRenderer>().SetAlpha(0f);
+        GameObject.Find("BigotonDialogue/DialogueBox/Message").GetComponent<CanvasRenderer>().SetAlpha(0f);
     }
 
     public void OnHaggleMinigameEnd()
     {
+        enteredSoldMode = false;
         hgv1.Hide();
         hgv2.Hide();
         value =  slider.getValue();
@@ -127,35 +100,55 @@ public class HaggleManager : MonoBehaviour
         {
             if (useDebugCode) Debug.Log("Price accepted, haggle successful");
             //TODO include dialogue for bigoton saying goodbye and telling the player they won
-            BigotonScript.instance.PlayGoodbyeMsg();
+            bigInstance.PlayGoodbyeMsg();
 
             //done
 
             Money.instance.AddMoney(value);
+            sold = true;
+            iManager.enterDropMode();
+            iOpener.ToggleInventory();
+            GameObject.Find("BigotonDialogue/DialogueBox").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/Avatar").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/ActorName").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/Message").GetComponent<CanvasRenderer>().SetAlpha(1f);
             value = -1;
         }
         else
         {
 
             //TODO include dialogue for bigoton saying goodbye and telling the player they lost, and that he bought the item for half price
-            BigotonScript.instance.PlayLosingGoodbyeMsg();
+            bigInstance.PlayLosingGoodbyeMsg();
 
             //done
 
             value = data.getValue()/2;
             if (useDebugCode) Debug.Log("Price too high, bigoton paid: " + value);
             Money.instance.AddMoney(value);
+            sold = true;
+            iManager.enterDropMode();
+            iOpener.ToggleInventory();
+            GameObject.Find("BigotonDialogue/DialogueBox").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/Avatar").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/ActorName").GetComponent<CanvasRenderer>().SetAlpha(1f);
+            GameObject.Find("BigotonDialogue/DialogueBox/Message").GetComponent<CanvasRenderer>().SetAlpha(1f);
             value = -1;
         }
     }
-
-    void OnInventoryClosed()
+        void OnInventoryClosed()
     {
-        iManager.enterDropMode();
         //TODO include dialogue for when the player cancels selling by closing their inventory
-        BigotonScript.instance.PlayCancelMsg();
+        if(!sold && InventoryManager.instance.buttonText.text == "Sell")
+            bigInstance.PlayCancelMsg();
+        iManager.enterDropMode();
+        sold = false;
+        enteredSoldMode = false;
 
         //done
 
     }
+    public bool selling(){
+        return enteredSoldMode;
+    }
+
 }
