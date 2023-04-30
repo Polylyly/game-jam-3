@@ -40,6 +40,8 @@ public class DialogueTriggering : MonoBehaviour
 				counter = (counter + 1) % dialogue.Length;
 				if (counter % dialogue.Length > (counter + 1) % dialogue.Length)
 				battery.Charge(100f);
+				ScrapGen.instance.Destroy();
+				ScrapGen.instance.Generate();
 			}
 			if (name == "Bigoton")
 			_sellingFlag = true;

@@ -8,6 +8,8 @@ public class HagglingSlider : MonoBehaviour
 	private float _angularF = 5f;
 	public bool _pauseToggle = false;
 	private float _time = 0f;
+
+	public TextMeshProUGUI text;
 	void Start()
 	{
 		
@@ -26,6 +28,8 @@ public class HagglingSlider : MonoBehaviour
 		//if(Input.GetKeyUp(KeyCode.Space)){
 		//	_pauseToggle = false;
 		//}
+
+		text.SetText(Mathf.RoundToInt((Mathf.InverseLerp(-0.473f, 0.473f, transform.localPosition.x) * 100)).ToString());
 	}
 
 	public int getValue()

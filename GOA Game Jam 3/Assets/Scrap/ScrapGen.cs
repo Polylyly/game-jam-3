@@ -52,7 +52,7 @@ public class ScrapGen : MonoBehaviour
     void Update()
     {
         //Testing purposes
-        if (Input.GetKeyDown(KeyCode.G)) Generate();
-        if (Input.GetKeyDown(KeyCode.H)) Destroy();
+        //if (Input.GetKeyDown(KeyCode.G)) Generate();
+        //if (Input.GetKeyDown(KeyCode.H)) Destroy();
     }
 }
